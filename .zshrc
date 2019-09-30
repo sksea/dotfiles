@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/$USER/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -68,16 +68,13 @@ prompt pure
 
 # User configuration
 export EMAIL="andyych88@gmail.com"
-export DOTFILES="/Users/$USER/dev/dotfiles"
+export DOTFILES=~/dev/dotfiles
 
+echo "Loading zsh dotfiles..."
 find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
   echo $(basename $FILE)
   [[ -s $FILE ]] && source $FILE
 done
-
-# Apply prompt https://github.com/sindresorhus/pure
-autoload -U promptinit; promptinit
-prompt pure
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -109,4 +106,4 @@ export LANG=en_US.UTF-8
 export PATH="/Users/cyee/bin:$PATH"
 
 # https://github.com/zsh-users/zsh-autosuggestions#installation
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
